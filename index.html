@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR CODE SCANNER</title>
+</head>
+<body>
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+        <label>Website for Generate QR Code</label>
+        <canvas width="100" height="100" style="border: 2px #000 solid;" id="canvas"></canvas>
+        <input placeholder="Example:youtube.com" id="qrinput" onchange="generateQR()"/>
+    </div>
+    
+    <script src="node_modules/qrcode/build/qrcode.js"></script>
+    <script>
+        function generateQR(){
+            let canvas = document.getElementById('canvas')
+            let qrinput = document.getElementById('qrinput')
+            QRCode.toCanvas(canvas, qrinput.value, (err) => {
+                if(err){
+                    console.error(eror)
+                }else(
+                    console.log('Scan Worked!!')
+                )
+            })
+        }
+    </script>
+</body>
+</html>
